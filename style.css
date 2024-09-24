@@ -1,0 +1,361 @@
+/* 
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal; */
+
+
+/* Normalizacion:  */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /*esto mantiene el ancho y el alto a psear del padding y border*/
+    font-family: "Orbitron", sans-serif;
+    list-style: none; /* quitamos las viñetas*/
+    text-decoration: none; /* sacamos el subrayado*/
+    color: white;
+}
+
+body{
+    background-color: black; /* TODO: borrar cuando tengamos el fondo final*/
+}
+
+header{
+
+    position: fixed; /* esto hace que el header se quede fijo en la parte superior*/
+    right: 0;
+    top:0;
+    z-index: 100; /*esto hace que el header se muestre opr encima*/
+    width: 100%;
+    display: flex; /* usamos flex para poder que los elementos se pongan en linea*/
+    align-items: center; /* centrado verticalmente*/
+    justify-content: space-between; /* los elementos se separan*/
+    padding: 15px 3%;
+    background-color:transparent;
+    }
+
+    .logo{
+        font-size: 30px;
+        font-weight: 700;
+        color: #8a8a8a;
+        transition: all .5s ease;
+       
+    }
+    .logo:hover{
+        color:white
+    }
+
+    .navlist{
+        display: flex; /* esto sirve para que los elementos se pongan en inea*/
+
+    }
+
+    .navlist a{
+        margin-left: 70px;
+        font-size: 15px;
+        font-weight: 500;
+        border-bottom: 2px solid transparent;
+        transition: all .5s ease;
+    }
+
+    .navlist a:hover{
+        border-bottom: 2px solid white;
+    }
+
+    #menu-icon{
+        display: none; /*esto lo aplicamos para cuando este colapsada la pagina y coloquemos un menu desplegable*/
+    }
+
+    #menu-icon{
+        font-size: 35px;
+        z-index: 101;/* para que este sobre el header*/
+        cursor: pointer;
+    
+    }
+    #menu-toggle{
+        display: none; /* nunca quierno que se vea el icono el del checkbox*/
+    }
+
+    .menu-icon-action{
+        display: none; /* para que no se le pueda hacer click*/
+    }
+
+    .hero{
+        height: 100%;
+        width: 100%;
+        min-height: 100vh;
+        background: linear-gradient(245.59deg, #5679ad 0%, #4b6792  25%, #131313 75%); /* fondo gradiente*/
+        position: relative; /* para que sea realtivo al contenedor ( nos perimte usar top, bottom, left y rigth)*/
+        display: grid; /* para que el hero se pueda dividir en dos columnas*/
+        grid-template-columns: 1fr 1fr; /* las dos columnas*/
+        align-items: center;/* para alinear verticalmente el hero*/
+        gap: 2rem;/*haya espacio de 2 rem entre las dos columnas*/
+    }
+
+    section{
+        padding: 0 8%;
+    }
+
+
+    .hero-text h5{
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 15px;
+    }
+
+    .hero-text h1{
+
+        font-family: "Orbitron", sans-serif;
+        font-size: 30px;
+        line-height: 1;
+        margin: 20px 0 40px;
+    }
+
+    .hero-text p{
+        font-size: 90%;
+        font-family: "Montserrat", sans-serif;  
+        line-height: 1.9;
+        margin-bottom: 40px;
+        text-align: left;
+    }
+
+
+    
+    .hero-img img{
+        width: 400px;
+        margin: 10% 0 0 10%;
+        box-shadow: 2px 2px 25px rgb(0, 0, 0);
+        height: auto;
+        transition: all 3s linear; /* esto hace que la transicion sea lineal*/
+    }
+
+    .hero-img img:hover{
+        width: 450px;
+        opacity: 0.6;
+    }
+    
+    .hero-text a{
+        display: inline-block; /* nos permite dar un ancho y un alto*/
+        background-color: #4d4d4d;
+        border: 1px solid transparent;
+        padding: 15px 30px;
+        line-height: 1.4;
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: 30px;
+        text-transform: uppercase;
+        transition: all .5s ease;
+        margin: 10px 0 0 10px
+    }
+
+    .hero-text a:hover{
+        background-color: transparent;
+        border: 1px solid white;
+        transform: translateX(3px);
+    }
+
+    .hero-text a.videos i{
+        margin-right: 10px;
+    }
+
+    .icons{
+        position: absolute;
+        top: 50vh;
+        padding: 0 3%;
+        transform: translateY(-50%);
+    }
+    .icons i{
+        display: block;
+        margin: 26px 0;
+        font-size: 25px;
+        transition: all .5s ease;
+    }
+    .icons i:hover{
+        color: #4d4d4d
+    }
+
+    .scrolldown{
+        position: absolute;
+        bottom: 6%;
+        right: 3%;
+    
+    }
+
+    .scrolldown i {
+        border-radius: 20px;
+        display: block;
+        padding: 12px;
+        font-size: 25px;
+        background-color: #4d4d4d;
+        transition: all .5s ease;
+    }
+
+    .scrolldown i:hover{
+        transform: translateY(5px);
+       
+    }
+    
+    /* vamos a hacer mediaqueris para que la web sea responsiva*/
+
+    @media( max-width:992px){
+
+       /* de manera no se rompe el texto del nav  */
+        header{
+            padding: 5px 10px;
+          
+        }
+        section{
+            padding: 0 3%;
+            transition: .2s;
+
+        }
+        .hero{
+            height: 100%;
+            width: 100%;
+        }
+        .hero-text{
+            padding-top: 0;
+
+        }
+
+        .hero-img{
+
+            text-align: center;
+        }
+        .hero-img img{
+    
+            width: 80%;
+            margin: 10% 0 0 10%;
+            transition: none;
+        }
+        .hero-img img:hover{
+            width: 80%;
+            margin: 10% 0 0 10%;
+            opacity: 100;
+        }
+    
+        
+        
+        .hero-text p{
+            font-size: 80%;
+            
+        }
+        
+
+        .icons{
+            position: none;
+            display: flex;
+            top:80vh;
+    
+    
+        }
+        .icons i{
+            margin: 0 20px;
+        }
+
+        .scrolldown{
+            display: none;
+        }
+
+        .hero-text a{
+            margin: 0;
+          
+        }
+        .hero-text a:hover{
+            transform: none;
+        }
+
+    }
+/* trabajamos como si fuese un celular  */
+    @media (max-width:768px){
+
+        header{
+            margin: 0
+        }
+
+        /* colocamos los iconos para hacer el menu despegable */
+
+        .menu-icon-action{
+            display: block;
+        }
+
+        #menu-icon{
+            display: block;
+        }
+
+
+        .hero-text{
+            padding-top: 100px;
+            text-align: center; 
+        }
+
+        .hero-text p{
+            margin: 10px 0;
+            padding: 0 25% 0 25%;
+            text-align: center;
+        }
+        .hero-text a{
+            margin: 0;
+            font-size: 10px;
+          
+        }
+        .hero-text a:hover{
+            transform: none;
+        }
+
+    
+
+        .hero-img img{
+            margin: 5% 0;
+            width: 60%;
+            transition: none;
+
+        }
+
+        .hero-img img:hover{
+            width: 60%;
+            margin: 5% 0;
+            opacity: 100;
+        }
+       
+        .hero{
+            height: 100%;
+            grid-template-columns: 1fr ;
+        }
+        
+        .navlist{
+            position: absolute;
+            top: 100%;
+            display: flex;
+            flex-direction: column;
+            right: -100%;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #4d4d4dea;
+            width: 200px;
+            height: 200px;
+            transition: all .5s ease-out;
+        
+        }
+        .navlist a{
+            display: block;
+            margin: 10px 10px;
+        }
+        #menu-toggle:checked + label.menu-icon-action +ul{
+            right: 0;
+        }
+
+        .icons{
+            
+            display: flex;
+            flex-direction: column;
+            top: 50vh;
+    
+        }
+        .icons i{
+            margin: 10px 0;
+        }
+    
+
+    }
